@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  xmlns:xacro="http://ros.org/wiki/xacro"
+  name="trolley_urdf">
+  <xacro:macro name="trolley_urdf_macro">
+  <link
+    name="trolley_base">
+    <inertial>
+      <origin
+        xyz="0.10272 0.49366 0.2"
+        rpy="0 0 0" />
+      <mass
+        value="48" />
+      <inertia
+        ixx="1.48"
+        ixy="2.3463E-16"
+        ixz="-9.3648E-33"
+        iyy="2.6"
+        iyz="1.1449E-17"
+        izz="4" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trolley_urdf/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trolley_urdf/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="wheel_1">
+    <inertial>
+      <origin
+        xyz="-2.7756E-17 0.05 0"
+        rpy="0 0 0" />
+      <mass
+        value="1.7671" />
+      <inertia
+        ixx="0.0039577"
+        ixy="5.6646E-20"
+        ixz="-6.4939E-20"
+        iyy="0.0049701"
+        iyz="5.8958E-20"
+        izz="0.0039577" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trolley_urdf/meshes/wheel_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trolley_urdf/meshes/wheel_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_1_joint"
+    type="continuous">
+    <origin
+      xyz="-0.22228 0.69366 0.075"
+      rpy="0 0 0" />
+    <parent
+      link="trolley_base" />
+    <child
+      link="wheel_1" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="wheel_2">
+    <inertial>
+      <origin
+        xyz="0 0.05 0"
+        rpy="0 0 0" />
+      <mass
+        value="1.7671" />
+      <inertia
+        ixx="0.0039577"
+        ixy="-3.3704E-20"
+        ixz="-2.2588E-20"
+        iyy="0.0049701"
+        iyz="1.0413E-19"
+        izz="0.0039577" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trolley_urdf/meshes/wheel_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trolley_urdf/meshes/wheel_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_2_joint"
+    type="continuous">
+    <origin
+      xyz="-0.22228 0.19366 0.075"
+      rpy="0 0 0" />
+    <parent
+      link="trolley_base" />
+    <child
+      link="wheel_2" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="wheel_3">
+    <inertial>
+      <origin
+        xyz="-5.5511E-17 0.05 0"
+        rpy="0 0 0" />
+      <mass
+        value="1.7671" />
+      <inertia
+        ixx="0.0039577"
+        ixy="-2.8731E-19"
+        ixz="-2.5129E-19"
+        iyy="0.0049701"
+        iyz="-6.1343E-20"
+        izz="0.0039577" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trolley_urdf/meshes/wheel_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trolley_urdf/meshes/wheel_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_3_joint"
+    type="continuous">
+    <origin
+      xyz="0.42772 0.19366 0.075"
+      rpy="0 0 0" />
+    <parent
+      link="trolley_base" />
+    <child
+      link="wheel_3" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="wheel_4">
+    <inertial>
+      <origin
+        xyz="0 0.0500000000000002 0"
+        rpy="0 0 0" />
+      <mass
+        value="1.76714586764426" />
+      <inertia
+        ixx="0.00395767043274496"
+        ixy="5.66458023401988E-20"
+        ixz="-1.97641021026003E-20"
+        iyy="0.00497009775274948"
+        iyz="8.15456627067693E-20"
+        izz="0.00395767043274496" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trolley_urdf/meshes/wheel_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trolley_urdf/meshes/wheel_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_4_joint"
+    type="continuous">
+    <origin
+      xyz="0.42772 0.69366 0.075"
+      rpy="0 0 0" />
+    <parent
+      link="trolley_base" />
+    <child
+      link="wheel_4" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="handle_link">
+    <inertial>
+      <origin
+        xyz="0 -0.19372 -0.17127"
+        rpy="0 0 0" />
+      <mass
+        value="5.2993" />
+      <inertia
+        ixx="0.55873"
+        ixy="3.1029E-17"
+        ixz="3.1343E-19"
+        iyy="0.2863"
+        iyz="-1.0271E-15"
+        izz="0.27482" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trolley_urdf/meshes/handle_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trolley_urdf/meshes/handle_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="handle_joint"
+    type="fixed">
+    <origin
+      xyz="-0.26728 0.68738 0.86"
+      rpy="0 0 0" />
+    <parent
+      link="trolley_base" />
+    <child
+      link="handle_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="frame_link">
+    <inertial>
+      <origin
+        xyz="0.01 -1.1102E-16 0.36"
+        rpy="0 0 0" />
+      <mass
+        value="7.248" />
+      <inertia
+        ixx="0.83046"
+        ixy="-5.2098E-17"
+        ixz="-2.3037E-16"
+        iyy="0.76329"
+        iyz="-4.8663E-17"
+        izz="0.22876" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trolley_urdf/meshes/frame_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trolley_urdf/meshes/frame_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="frame_joint"
+    type="fixed">
+    <origin
+      xyz="0.34272 0.49366 0.25"
+      rpy="0 0 0" />
+    <parent
+      link="trolley_base" />
+    <child
+      link="frame_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="box_link">
+    <inertial>
+      <origin
+        xyz="0.15 0.15 0.15"
+        rpy="0 0 0" />
+      <mass
+        value="28.44" />
+      <inertia
+        ixx="0.450551999999999"
+        ixy="-2.76726883595424E-17"
+        ixz="-2.54109884176291E-17"
+        iyy="0.470664"
+        iyz="-1.46071550037944E-17"
+        izz="0.463512" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trolley_urdf/meshes/box_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trolley_urdf/meshes/box_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="box_joint"
+    type="prismatic">
+    <origin
+      xyz="-0.14 -0.15 0.4028"
+      rpy="0 0 0" />
+    <parent
+      link="frame_link" />
+    <child
+      link="box_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.35"
+      upper="0"
+      effort="1000"
+      velocity="0" />
+  </joint>
+  </xacro:macro>
+  <xacro:trolley_urdf_macro/>
+</robot>

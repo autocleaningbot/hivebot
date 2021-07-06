@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding='utf-8'?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="mycobot_pro_robot" >
+  <xacro:macro name="mycobot_pro_robot_macro" params="prefix:='' namespace:='xarm' limited:='false' effort_control:='false' 
+    velocity_control:='false' attach_to:='world' xyz:='0 0 0' rpy:='0 0 0' load_gazebo_plugin:='true' ">
+
+    <!-- include mycobot relative macros: -->
+    <xacro:include filename="$(find mycobot_pro)/urdf/320_urdf/mycobot_pro_320.xacro" />
+
+    <!-- add one world link if no 'attach_to' specified  -->
+    <xacro:if value="${attach_to == 'world'}">
+      <link name="world" />
+    </xacro:if>
+
+    <joint name="world_joint" type="fixed">
+      <parent link="${attach_to}" />
+      <child link = "${prefix}arm_base" />
+      <origin xyz="${xyz}" rpy="${rpy}" />
+    </joint>
+
+  </xacro:macro>
+</robot>

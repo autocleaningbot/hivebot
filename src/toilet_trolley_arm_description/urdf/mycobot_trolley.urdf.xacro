@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="toilet_trolley_arm_description">
+
+    <xacro:macro name="toilet_trolley_arm_macro">
+    <xacro:arg name="ros_namespace" default="toilet_trolley_arm_description"/>
+
+    <!-- load trolley -->
+    <xacro:include filename="$(find trolley_urdf)/urdf/trolley_urdf_7.xacro" />
+
+    <!-- load mycobot_pro_320 -->
+    <xacro:include filename="$(find mycobot_pro)/urdf/mycobot_robot_macro.xacro" />
+
+    <xacro:mycobot_pro_robot_macro attach_to="box_link" xyz="0.3 0.15 0.15" rpy="0 1.5707 0"/>
+    </xacro:macro>
+
+    <xacro:toilet_trolley_arm_macro/>
+
+</robot>
