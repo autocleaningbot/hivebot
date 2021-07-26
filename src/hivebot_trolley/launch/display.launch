@@ -3,7 +3,7 @@
     name="model" />
   <param
     name="robot_description"
-    textfile="$(find hivebot_trolley)/urdf/hivebot_trolley.urdf" />
+    textfile="$(find hivebot_trolley)/urdf/hivebot_trolley.xacro" />
   <node
     name="joint_state_publisher_gui"
     pkg="joint_state_publisher_gui"
@@ -23,7 +23,7 @@
   <arg name="gui" default="true" />
   <arg name="rvizconfig" default="$(find urdf_tutorial)/rviz/urdf.rviz" />
 
-  <param name="robot_description" textfile="$(find hivebot_trolley)/urdf/hivebot_trolley.urdf" />
+  <param name="robot_description" textfile="$(find hivebot_trolley)/urdf/hivebot_trolley.xacro" />
 
   <node if="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
   <node unless="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
