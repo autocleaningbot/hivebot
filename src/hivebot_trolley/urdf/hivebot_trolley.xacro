@@ -2,23 +2,31 @@
 <!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
      Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
-<robot
-  name="hivebot_trolley" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="hivebot_trolley">
+
+  <link name="base_footprint" xmlns:xacro="http://www.ros.org/wiki/xacro"/>
+
+  <joint name="base_joint" type="fixed">
+    <origin xyz="0 0 0.05" rpy="0 0 0" />
+    <parent link="base_footprint"/>
+    <child link="base_link" />
+  </joint>
+
   <link
     name="base_link">
     <inertial>
       <origin
-        xyz="0.0235732763735559 -1.16301105845676E-16 -0.0393476182287232"
+        xyz="0.0235732763735559 -1.16156711654192E-16 -0.0393476182287232"
         rpy="0 0 0" />
       <mass
-        value="63.354" />
+        value="63.3540430981409" />
       <inertia
-        ixx="1.198"
-        ixy="3.8905E-16"
-        ixz="0.0092607"
-        iyy="2.1187"
-        iyz="2.6213E-18"
-        izz="3.2479" />
+        ixx="1.19803483723971"
+        ixy="3.94354928014663E-16"
+        ixz="0.00926065111324139"
+        iyy="2.11869396240118"
+        iyz="2.70482966665085E-18"
+        izz="3.24789298834746" />
     </inertial>
     <visual>
       <origin
@@ -31,7 +39,7 @@
       <material
         name="">
         <color
-          rgba="0.89804 0.91765 0.92941 1" />
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
       </material>
     </visual>
     <collision>
@@ -44,21 +52,34 @@
       </geometry>
     </collision>
   </link>
+  <joint
+    name="compartment-2-to-base"
+    type="fixed">
+    <origin
+      xyz="-0.2 -0.125 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="compartment-2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
   <link
     name="front_wheel_mount_plate_1">
     <inertial>
       <origin
-        xyz="0 0 0.00372376098180308"
+        xyz="0 0 0.00372376098180309"
         rpy="0 0 0" />
       <mass
-        value="0.088512" />
+        value="0.0885122104446696" />
       <inertia
-        ixx="4.9659E-05"
-        ixy="8.7646E-21"
-        ixz="-4.1729E-22"
-        iyy="4.9659E-05"
-        iyz="3.3659E-23"
-        izz="9.8879E-05" />
+        ixx="4.96589186338358E-05"
+        ixy="8.76460525250229E-21"
+        ixz="4.57370748529084E-22"
+        iyy="4.96589186338358E-05"
+        iyz="-1.38813531491213E-23"
+        izz="9.88794947001013E-05" />
     </inertial>
     <visual>
       <origin
@@ -71,7 +92,7 @@
       <material
         name="">
         <color
-          rgba="0.89804 0.91765 0.92941 1" />
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
       </material>
     </visual>
     <collision>
@@ -89,7 +110,7 @@
     type="fixed">
     <origin
       xyz="0.28 -0.205 -0.086"
-      rpy="0 0 3.1416" />
+      rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
@@ -101,17 +122,17 @@
     name="front_wheel_holder_1">
     <inertial>
       <origin
-        xyz="0 0.0353498305391302 5.55111512312578E-17"
+        xyz="0 -5.55111512312578E-17 -0.0353498305391301"
         rpy="0 0 0" />
       <mass
-        value="0.40766" />
+        value="0.40765592096642" />
       <inertia
-        ixx="0.00076318"
-        ixy="-8.8118E-20"
-        ixz="7.5894E-19"
-        iyy="0.00052811"
-        iyz="2.369E-19"
-        izz="0.00050127" />
+        ixx="0.000762776791330026"
+        ixy="1.03138220220553E-05"
+        ixz="6.91311896835273E-20"
+        iyy="0.000501675770186767"
+        iyz="-1.75192826322455E-19"
+        izz="0.000528106575482838" />
     </inertial>
     <visual>
       <origin
@@ -124,7 +145,7 @@
       <material
         name="">
         <color
-          rgba="0.89804 0.91765 0.92941 1" />
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
       </material>
     </visual>
     <collision>
@@ -142,29 +163,29 @@
     type="continuous">
     <origin
       xyz="0 0 0"
-      rpy="-1.5708 0 -3.1022" />
+      rpy="0 0 0" />
     <parent
       link="front_wheel_mount_plate_1" />
     <child
       link="front_wheel_holder_1" />
     <axis
-      xyz="0 1 0" />
+      xyz="0 0 -1" />
   </joint>
   <link
     name="front_wheel_1">
     <inertial>
       <origin
-        xyz="0 0 5.55111512312578E-17"
+        xyz="5.55111512312578E-17 8.32667268468867E-17 -5.55111512312578E-17"
         rpy="0 0 0" />
       <mass
-        value="1.7356" />
+        value="1.73558464244813" />
       <inertia
-        ixx="0.0021082"
-        ixy="3.2526E-19"
-        ixz="-1.6963E-19"
-        iyy="0.0021082"
-        iyz="-4.6684E-19"
-        izz="0.0034491" />
+        ixx="0.00211027858785498"
+        ixy="-5.2803822366633E-05"
+        ixz="1.94419187005969E-19"
+        iyy="0.00344704122644933"
+        iyz="-2.97963645002492E-19"
+        izz="0.00210819601428248" />
     </inertial>
     <visual>
       <origin
@@ -177,7 +198,7 @@
       <material
         name="">
         <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
       </material>
     </visual>
     <collision>
@@ -194,30 +215,30 @@
     name="front_wheel_1_toholder"
     type="continuous">
     <origin
-      xyz="0 0.081 0"
-      rpy="0 0 1.9085" />
+      xyz="0 0 -0.081"
+      rpy="0 0 0" />
     <parent
       link="front_wheel_holder_1" />
     <child
       link="front_wheel_1" />
     <axis
-      xyz="0 0 1" />
+      xyz="-0.0394091875345171 0.99922315622581 0" />
   </joint>
   <link
     name="front_wheel_mount_plate_2">
     <inertial>
       <origin
-        xyz="0 -2.77555756156289E-17 0.00372376098180308"
+        xyz="0 -2.77555756156289E-17 0.00372376098180309"
         rpy="0 0 0" />
       <mass
-        value="0.088512" />
+        value="0.0885122104446697" />
       <inertia
-        ixx="4.9659E-05"
-        ixy="1.3325E-20"
-        ixz="-1.3686E-22"
-        iyy="4.9659E-05"
-        iyz="-6.5549E-22"
-        izz="9.8879E-05" />
+        ixx="4.96589186338359E-05"
+        ixy="1.33252491072572E-20"
+        ixz="1.0447510163914E-22"
+        iyy="4.96589186338359E-05"
+        iyz="6.3556804032152E-22"
+        izz="9.88794947001014E-05" />
     </inertial>
     <visual>
       <origin
@@ -230,7 +251,7 @@
       <material
         name="">
         <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
       </material>
     </visual>
     <collision>
@@ -248,7 +269,7 @@
     type="fixed">
     <origin
       xyz="0.28 0.205 -0.086"
-      rpy="0 0 3.1416" />
+      rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
@@ -260,17 +281,17 @@
     name="front_wheel_holder_2">
     <inertial>
       <origin
-        xyz="0 0.0353498305391302 -1.38777878078145E-16"
+        xyz="-5.55111512312578E-17 -5.55111512312578E-17 -0.0353498305391302"
         rpy="0 0 0" />
       <mass
-        value="0.40766" />
+        value="0.40765592096642" />
       <inertia
-        ixx="0.00076318"
-        ixy="6.7699E-20"
-        ixz="-1.589E-18"
-        iyy="0.00052811"
-        iyz="2.4104E-19"
-        izz="0.00050127" />
+        ixx="0.00076152629456158"
+        ixy="2.07681767546495E-05"
+        ixz="-6.15417341469107E-20"
+        iyy="0.000502926266955213"
+        iyz="3.73082590857221E-19"
+        izz="0.000528106575482838" />
     </inertial>
     <visual>
       <origin
@@ -283,7 +304,7 @@
       <material
         name="">
         <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
       </material>
     </visual>
     <collision>
@@ -301,29 +322,29 @@
     type="continuous">
     <origin
       xyz="0 0 0"
-      rpy="-1.5708 0 0.07963" />
+      rpy="0 0 0" />
     <parent
       link="front_wheel_mount_plate_2" />
     <child
       link="front_wheel_holder_2" />
     <axis
-      xyz="0 1 0" />
+      xyz="0 0 -1" />
   </joint>
   <link
     name="front_wheel_2">
     <inertial>
       <origin
-        xyz="0 0 2.77555756156289E-17"
+        xyz="5.55111512312578E-17 0 0"
         rpy="0 0 0" />
       <mass
-        value="1.7356" />
+        value="1.73558464244813" />
       <inertia
-        ixx="0.0021082"
-        ixy="-3.2526E-19"
-        ixz="1.2945E-18"
-        iyy="0.0021082"
-        iyz="-1.3425E-18"
-        izz="0.0034491" />
+        ixx="0.00211668077407555"
+        ixy="-0.000106327132064745"
+        ixz="-2.97271341358694E-19"
+        iyy="0.00344063904022875"
+        iyz="-1.72056927832268E-21"
+        izz="0.00210819601428248" />
     </inertial>
     <visual>
       <origin
@@ -336,7 +357,7 @@
       <material
         name="">
         <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
       </material>
     </visual>
     <collision>
@@ -353,30 +374,30 @@
     name="front_wheel_2_toholder"
     type="continuous">
     <origin
-      xyz="0 0.081 0"
-      rpy="0 0 2.2113" />
+      xyz="0 0 -0.081"
+      rpy="0 0 0" />
     <parent
       link="front_wheel_holder_2" />
     <child
       link="front_wheel_2" />
     <axis
-      xyz="0 0 1" />
+      xyz="0.0795457683033873 -0.996831214772603 0" />
   </joint>
   <link
     name="back_wheel_holder_2">
     <inertial>
       <origin
-        xyz="2.77555756156289E-17 2.77555756156289E-17 0.12370581952403"
+        xyz="-2.77555756156289E-17 0.12370581952403 2.77555756156289E-17"
         rpy="0 0 0" />
       <mass
-        value="3.6906" />
+        value="3.69062219624929" />
       <inertia
-        ixx="0.0091266"
-        ixy="5.5702E-19"
-        ixz="-7.4876E-19"
-        iyy="0.010315"
-        iyz="-3.3515E-19"
-        izz="0.0067288" />
+        ixx="0.00912658772080383"
+        ixy="8.63502453250557E-19"
+        ixz="-5.57023878196132E-19"
+        iyy="0.00672881943632791"
+        iyz="-2.81940192519475E-19"
+        izz="0.0103145877208038" />
     </inertial>
     <visual>
       <origin
@@ -389,7 +410,7 @@
       <material
         name="">
         <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
       </material>
     </visual>
     <collision>
@@ -407,7 +428,7 @@
     type="fixed">
     <origin
       xyz="-0.2185 -0.25 -0.13"
-      rpy="1.5708 0 3.1416" />
+      rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
@@ -419,17 +440,17 @@
     name="back_wheel_2">
     <inertial>
       <origin
-        xyz="4.16333634234434E-16 -5.55111512312578E-17 0.0399999999999996"
+        xyz="-5.55111512312578E-17 0.0399999999999996 4.16333634234434E-16"
         rpy="0 0 0" />
       <mass
-        value="7.2726" />
+        value="7.27255451520401" />
       <inertia
-        ixx="0.025637"
-        ixy="2.647E-22"
-        ixz="2.6866E-18"
-        iyy="0.025637"
-        iyz="-3.1161E-18"
-        izz="0.043516" />
+        ixx="0.0256368152469609"
+        ixy="-3.1162102280413E-18"
+        ixz="-1.17965325757309E-22"
+        iyy="0.0435162390110376"
+        iyz="2.68645908030935E-18"
+        izz="0.0256368152469609" />
     </inertial>
     <visual>
       <origin
@@ -442,7 +463,7 @@
       <material
         name="">
         <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
       </material>
     </visual>
     <collision>
@@ -460,29 +481,29 @@
     type="continuous">
     <origin
       xyz="0 0 0"
-      rpy="0 0 1.5708" />
+      rpy="0 0 0" />
     <parent
       link="back_wheel_holder_2" />
     <child
       link="back_wheel_2" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 1 0" />
   </joint>
   <link
     name="back_wheel_holder_1">
     <inertial>
       <origin
-        xyz="0 0 0.12370581952403"
+        xyz="2.77555756156289E-17 -0.12370581952403 -2.77555756156289E-17"
         rpy="0 0 0" />
       <mass
-        value="3.6906" />
+        value="3.69062219624929" />
       <inertia
-        ixx="0.0091266"
-        ixy="8.6734E-19"
-        ixz="-5.0983E-19"
-        iyy="0.010315"
-        iyz="2.5555E-20"
-        izz="0.0067288" />
+        ixx="0.00912658772080382"
+        ixy="-5.58383894595012E-19"
+        ixz="8.67342168411457E-19"
+        iyy="0.00672881943632791"
+        iyz="6.69411038953511E-20"
+        izz="0.0103145877208038" />
     </inertial>
     <visual>
       <origin
@@ -495,7 +516,7 @@
       <material
         name="">
         <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
       </material>
     </visual>
     <collision>
@@ -513,7 +534,7 @@
     type="fixed">
     <origin
       xyz="-0.2185 0.25 -0.13"
-      rpy="-1.5708 0 3.1416" />
+      rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
@@ -525,17 +546,17 @@
     name="back_wheel_1">
     <inertial>
       <origin
-        xyz="-5.55111512312578E-17 0 0.04"
+        xyz="-5.55111512312578E-17 -0.04 0"
         rpy="0 0 0" />
       <mass
-        value="7.2726" />
+        value="7.27255451520401" />
       <inertia
-        ixx="0.025637"
-        ixy="0"
-        ixz="3.4218E-18"
-        iyy="0.025637"
-        iyz="-4.1076E-18"
-        izz="0.043516" />
+        ixx="0.0256368152469609"
+        ixy="-2.25459743055601E-18"
+        ixz="1.57683124065269E-19"
+        iyy="0.0435162390110376"
+        iyz="4.84744605090424E-18"
+        izz="0.0256368152469609" />
     </inertial>
     <visual>
       <origin
@@ -548,7 +569,7 @@
       <material
         name="">
         <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
       </material>
     </visual>
     <collision>
@@ -566,29 +587,29 @@
     type="continuous">
     <origin
       xyz="0 0 0"
-      rpy="0 0 2.8824" />
+      rpy="0 0 0" />
     <parent
       link="back_wheel_holder_1" />
     <child
       link="back_wheel_1" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 -1 0" />
   </joint>
   <link
     name="guiding_frame-2">
     <inertial>
       <origin
-        xyz="1.40422097108178E-16 -5.55111512312578E-17 0.52082343378767"
+        xyz="5.55111512312578E-17 -1.36557830061531E-16 -0.52082343378767"
         rpy="0 0 0" />
       <mass
-        value="15.546" />
+        value="15.546168" />
       <inertia
-        ixx="0.99673"
-        ixy="6.6037E-18"
-        ixz="1.5535E-16"
-        iyy="1.0467"
-        iyz="9.6464E-17"
-        izz="0.076308" />
+        ixx="1.04667928751446"
+        ixy="-1.21627735877006E-18"
+        ixz="9.73209658663459E-17"
+        iyy="0.99672874017046"
+        iyz="1.5679887871354E-16"
+        izz="0.076308340032" />
     </inertial>
     <visual>
       <origin
@@ -601,7 +622,7 @@
       <material
         name="">
         <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
       </material>
     </visual>
     <collision>
@@ -619,7 +640,7 @@
     type="fixed">
     <origin
       xyz="0.275 0 0.81"
-      rpy="3.1416 0 -1.5708" />
+      rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
@@ -631,17 +652,17 @@
     name="mount-box">
     <inertial>
       <origin
-        xyz="-0.0400000000000001 -0.0599999999999999 -0.06"
+        xyz="-3.33066907387547E-16 -5.43166688588743E-17 8.31973379078477E-13"
         rpy="0 0 0" />
       <mass
-        value="3.8836" />
+        value="3.88364559868246" />
       <inertia
-        ixx="0.0093248"
-        ixy="4.3129E-19"
-        ixz="1.0113E-20"
-        iyy="0.0078461"
-        iyz="-1.9951E-18"
-        izz="0.0078507" />
+        ixx="0.00932475709657866"
+        ixy="-3.73105112956337E-19"
+        ixz="-7.61186554870903E-19"
+        iyy="0.00785069349852472"
+        iyz="3.77869461474261E-19"
+        izz="0.00784612520652471" />
     </inertial>
     <visual>
       <origin
@@ -654,7 +675,7 @@
       <material
         name="">
         <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
       </material>
     </visual>
     <collision>
@@ -671,35 +692,35 @@
     name="mount-box-to-frame"
     type="prismatic">
     <origin
-      xyz="0.06 -0.04 0.11989"
-      rpy="-1.5708 0 -1.5708" />
+      xyz="0 0 -0.57843375382"
+      rpy="0 0 0" />
     <parent
       link="guiding_frame-2" />
     <child
       link="mount-box" />
     <axis
-      xyz="0 1 0" />
+      xyz="0 0 1" />
     <limit
-      lower="-0.38"
-      upper="0.1"
-      effort="0"
+      lower="0"
+      upper="0.48"
+      effort="1000"
       velocity="0" />
   </joint>
   <link
     name="surrounding-frame">
     <inertial>
       <origin
-        xyz="0.25081880830438 -0.0984828202328318 0.385306866228244"
+        xyz="0.0846729181735194 0.000767773564878785 0.214525253910696"
         rpy="0 0 0" />
       <mass
-        value="82.748" />
+        value="82.7476434299921" />
       <inertia
-        ixx="3.3922"
-        ixy="-0.0022233"
-        ixz="0.002369"
-        iyy="3.782"
-        iyz="0.020109"
-        izz="1.8643" />
+        ixx="3.78200016445154"
+        ixy="-0.00222325591596084"
+        ixz="-0.0201090148476572"
+        iyy="3.39224065150316"
+        iyz="-0.00236895559099694"
+        izz="1.86426383436205" />
     </inertial>
     <visual>
       <origin
@@ -712,7 +733,7 @@
       <material
         name="">
         <color
-          rgba="0.89804 0.91765 0.92941 1" />
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
       </material>
     </visual>
     <collision>
@@ -729,8 +750,8 @@
     name="surrounding-frame-to-base"
     type="fixed">
     <origin
-      xyz="0.225 -0.25 0.81"
-      rpy="3.1416 0 1.5708" />
+      xyz="0.0749999999999998 0 0.16"
+      rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
@@ -742,17 +763,17 @@
     name="cover-door">
     <inertial>
       <origin
-        xyz="0.137890062430959 0.150040997767576 -0.000110355172872834"
+        xyz="-0.150040997767576 -0.137889670402826 0.000346830907110185"
         rpy="0 0 0" />
       <mass
-        value="2.0589" />
+        value="2.05892920065877" />
       <inertia
-        ixx="0.015388"
-        ixy="-8.6193E-06"
-        ixz="2.3201E-05"
-        iyy="0.014098"
-        iyz="2.2628E-06"
-        izz="0.029338" />
+        ixx="0.0140981800413022"
+        ixy="-8.61535975977684E-06"
+        ixz="2.2775979768361E-06"
+        iyy="0.0153884352208601"
+        iyz="4.71234485426862E-05"
+        izz="0.0293377145153787" />
     </inertial>
     <visual>
       <origin
@@ -780,32 +801,32 @@
   </link>
   <joint
     name="cover-door-to-frame"
-    type="continuous">
+    type="fixed">
     <origin
-      xyz="0.36855 -0.06 0.01"
-      rpy="0 0.001715 3.1416" />
+      xyz="0.0899999999999999 0.118551612567476 0.64"
+      rpy="0 0 0" />
     <parent
       link="surrounding-frame" />
     <child
       link="cover-door" />
     <axis
-      xyz="0 1 0" />
+      xyz="-1 0 0" />
   </joint>
   <link
     name="tablet">
     <inertial>
       <origin
-        xyz="1.36883635898117E-05 0.00296570177312283 4.00530110057362E-05"
+        xyz="-0.00212538959044117 -1.36883635898138E-05 0.00206874607906293"
         rpy="0 0 0" />
       <mass
         value="0.886766298135032" />
       <inertia
-        ixx="0.000869274675297478"
-        ixy="-4.8031613415315E-10"
-        ixz="1.8111012303801E-07"
-        iyy="0.00322162542614506"
-        iyz="2.12663790167015E-07"
-        izz="0.00235739044467824" />
+        ixx="0.00278972059920181"
+        ixy="1.27724561345949E-07"
+        ixz="-0.000432117490733407"
+        iyy="0.000869274675297478"
+        iyz="1.28403830937449E-07"
+        izz="0.00278929527162149" />
     </inertial>
     <visual>
       <origin
@@ -835,8 +856,8 @@
     name="tablet-to-frame"
     type="fixed">
     <origin
-      xyz="0.251 -0.47364 0.070711"
-      rpy="-0.7854 0 -3.1416" />
+      xyz="-0.323639610306789 0.001 0.579289321881345"
+      rpy="0 0 0" />
     <parent
       link="surrounding-frame" />
     <child
@@ -848,17 +869,17 @@
     name="handle">
     <inertial>
       <origin
-        xyz="0.2 0 0.0683128872678796"
+        xyz="-0.0683128872678795 0.2 0"
         rpy="0 0 0" />
       <mass
         value="1.03600411126002" />
       <inertia
-        ixx="0.000609084661143678"
-        ixy="5.58622665846924E-19"
-        ixz="3.76213226232454E-18"
-        iyy="0.0216912097899884"
-        iyz="5.2805489928396E-20"
-        izz="0.0211986755913615" />
+        ixx="0.0211986755913615"
+        ixy="-3.76213226232454E-18"
+        ixz="5.2805489928396E-20"
+        iyy="0.000609084661143678"
+        iyz="-5.58622665846924E-19"
+        izz="0.0216912097899884" />
     </inertial>
     <visual>
       <origin
@@ -888,8 +909,8 @@
     name="handle-to-frame"
     type="fixed">
     <origin
-      xyz="0.05 -0.55 0.18"
-      rpy="1.5708 0 0" />
+      xyz="-0.4 -0.2 0.47"
+      rpy="0 0 0" />
     <parent
       link="surrounding-frame" />
     <child
@@ -901,16 +922,16 @@
     name="tools">
     <inertial>
       <origin
-        xyz="0.192936151051069 0.120280603660325 -0.0161951081872489"
+        xyz="0.0135685512178612 -0.226707429071848 0.000429751102776738"
         rpy="0 0 0" />
       <mass
         value="1.10101723384343" />
       <inertia
-        ixx="0.00173131347854253"
-        ixy="-4.46780138229562E-05"
-        ixz="-1.35156008592122E-05"
-        iyy="0.00179339912699962"
-        iyz="2.58485866432443E-05"
+        ixx="0.00181676017997894"
+        ixy="-5.7000778196603E-19"
+        ixz="2.91688343620181E-05"
+        iyy="0.00170795242556321"
+        iyz="-4.21950089664413E-19"
         izz="0.00133528189029824" />
     </inertial>
     <visual>
@@ -924,7 +945,7 @@
       <material
         name="">
         <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
       </material>
     </visual>
     <collision>
@@ -941,8 +962,8 @@
     name="tools-to-frame"
     type="fixed">
     <origin
-      xyz="0.47671 0.09305 0.59"
-      rpy="3.1416 0 -2.6598" />
+      xyz="0.243049636115999 0.226707429071858 0.0599999999999998"
+      rpy="0 0 0" />
     <parent
       link="surrounding-frame" />
     <child
@@ -954,17 +975,17 @@
     name="compartment-1">
     <inertial>
       <origin
-        xyz="-0.000407919789025102 0.0298582952007898 0.273367873191963"
+        xyz="0.0159462607609362 -0.00910725247573026 0.274676056153122"
         rpy="0 0 0" />
       <mass
-        value="1.0574" />
+        value="1.05739476651221" />
       <inertia
-        ixx="0.033889"
-        ixy="1.0836E-17"
-        ixz="2.1547E-19"
-        iyy="0.036978"
-        iyz="-0.00088625"
-        izz="0.01448" />
+        ixx="0.033888709501066"
+        ixy="1.08388147884056E-17"
+        ixz="-1.95856102547443E-19"
+        iyy="0.0369783137022633"
+        iyz="0.000886251680853717"
+        izz="0.0144797683018268" />
     </inertial>
     <visual>
       <origin
@@ -977,7 +998,7 @@
       <material
         name="">
         <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+          rgba="1 1 1 1" />
       </material>
     </visual>
     <collision>
@@ -995,7 +1016,7 @@
     type="fixed">
     <origin
       xyz="-0.2 0.125 0"
-      rpy="0 0 3.1416" />
+      rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
@@ -1007,17 +1028,17 @@
     name="door-1">
     <inertial>
       <origin
-        xyz="0.295291950301883 0.10382999581969 1.11022302462516E-16"
+        xyz="-0.103829601822913 0.000286037081769358 0.295291950301883"
         rpy="0 0 0" />
       <mass
         value="0.209666054570214" />
       <inertia
-        ixx="0.000868657642586339"
-        ixy="6.35564875691627E-06"
-        ixz="1.32216549110476E-20"
-        iyy="0.00608837938603179"
-        iyz="-6.38662842229742E-19"
-        izz="0.00695354992429537" />
+        ixx="0.00608838595202948"
+        ixy="2.38341449388362E-06"
+        ixz="-6.35562463955881E-06"
+        iyy="0.00695354335829767"
+        iyz="1.75089212787349E-08"
+        izz="0.000868657642586339" />
     </inertial>
     <visual>
       <origin
@@ -1030,7 +1051,7 @@
       <material
         name="">
         <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+          rgba="1 1 1 1" />
       </material>
     </visual>
     <collision>
@@ -1045,32 +1066,32 @@
   </link>
   <joint
     name="door-1-to-compartment"
-    type="continuous">
+    type="fixed">
     <origin
-      xyz="-0.1 -0.115 0.01"
-      rpy="1.568 -1.5708 0" />
+      xyz="0.0999999999999994 0.115 0.00999999999999993"
+      rpy="0 0 0" />
     <parent
       link="compartment-1" />
     <child
       link="door-1" />
     <axis
-      xyz="1 0 0" />
+      xyz="0 0 1" />
   </joint>
   <link
     name="compartment-2">
     <inertial>
       <origin
-        xyz="0.000407919789025379 0.0298582952007898 0.273367873191963"
+        xyz="0.0159462607609365 0.00910725247573027 0.274676056153122"
         rpy="0 0 0" />
       <mass
-        value="5.66237181704939" />
+        value="1.05739476651221" />
       <inertia
-        ixx="0.211234924589257"
-        ixy="7.54303366478574E-17"
-        ixz="2.25062829490829E-17"
-        iyy="0.230542686133498"
-        iyz="-0.0055394227160161"
-        izz="0.0904301793877136" />
+        ixx="0.033888709501066"
+        ixy="1.20681831383722E-17"
+        ixz="3.61843005233635E-18"
+        iyy="0.0369783137022634"
+        iyz="-0.000886251680853721"
+        izz="0.0144797683018268" />
     </inertial>
     <visual>
       <origin
@@ -1083,7 +1104,7 @@
       <material
         name="">
         <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+          rgba="1 1 1 1" />
       </material>
     </visual>
     <collision>
@@ -1096,34 +1117,21 @@
       </geometry>
     </collision>
   </link>
-  <joint
-    name="compartment-2-to-base"
-    type="fixed">
-    <origin
-      xyz="-0.2 -0.125 0"
-      rpy="0 0 0" />
-    <parent
-      link="base_link" />
-    <child
-      link="compartment-2" />
-    <axis
-      xyz="0 0 0" />
-  </joint>
   <link
     name="door-2">
     <inertial>
       <origin
-        xyz="0.295291950301883 0.103829995819691 1.38777878078145E-16"
+        xyz="-0.103778785036784 -0.00326064536650364 0.295291950301883"
         rpy="0 0 0" />
       <mass
         value="0.209666054570215" />
       <inertia
-        ixx="0.000868657642586341"
-        ixy="6.35564875691666E-06"
-        ixz="-7.80593800454041E-20"
-        iyy="0.0060883793860318"
-        iyz="2.43945488809238E-19"
-        izz="0.00695354992429538" />
+        ixx="0.00608923261026625"
+        ixy="-2.71561499219606E-05"
+        ixz="-6.35251403899478E-06"
+        iyy="0.00695269670006093"
+        iyz="-1.99590845658357E-07"
+        izz="0.000868657642586341" />
     </inertial>
     <visual>
       <origin
@@ -1136,7 +1144,7 @@
       <material
         name="">
         <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+          rgba="1 1 1 1" />
       </material>
     </visual>
     <collision>
@@ -1151,15 +1159,15 @@
   </link>
   <joint
     name="door-2-to-compartment"
-    type="continuous">
+    type="fixed">
     <origin
-      xyz="0.1 -0.115 0.01"
-      rpy="1.5394 -1.5708 0" />
+      xyz="0.1 -0.115 0.00999999999999982"
+      rpy="0 0 0" />
     <parent
       link="compartment-2" />
     <child
       link="door-2" />
     <axis
-      xyz="1 0 0" />
+      xyz="0 0 1" />
   </joint>
 </robot>

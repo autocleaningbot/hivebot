@@ -5,12 +5,12 @@
         <xacro:arg name="ros_namespace" default="toilet_trolley_arm_description"/>
 
         <!-- load trolley -->
-        <xacro:include filename="$(find hivebot_trolley)/urdf/hivebot_trolley.urdf" />
+        <xacro:include filename="$(find hivebot_trolley)/urdf/hivebot_trolley.xacro" />
 
         <!-- load mycobot_pro_320 -->
         <xacro:include filename="$(find mycobot_320)/urdf/mycobot_robot_macro.xacro" />
 
-        <xacro:mycobot_pro_robot_macro attach_to="mount-box" xyz="0 -0.06 -0.06" rpy="0 1.5707 0"/>
+        <xacro:mycobot_pro_robot_macro attach_to="mount-box" xyz="0.05 0 0" rpy="0 1.5707 0"/>
     </xacro:macro>
 
     <xacro:trolley_arm_macro/>
