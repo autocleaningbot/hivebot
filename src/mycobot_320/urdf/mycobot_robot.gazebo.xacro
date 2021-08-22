@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding='utf-8'?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <!-- Load Transmissions Required for Gazebo -->
+    <transmission name="trans_j1_to_base">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j1_to_base">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j1_to_base_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans_j2_to_j1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j2_to_j1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j2_to_j1_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans_j3_to_j2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j3_to_j2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j3_to_j2_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans_j4_to_j3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j4_to_j3">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j4_to_j3_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans_j5_to_j4">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j5_to_j4">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j5_to_j4_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans_j6_to_j5">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j6_to_j5">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j6_to_j5_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <!-- Load Ros Control Plugin -->
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+</robot>

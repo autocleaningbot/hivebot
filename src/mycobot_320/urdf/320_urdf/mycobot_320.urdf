@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mycobot_320">
+  <xacro:property name="width" value=".2"/>
+
+  <link name="arm_base">
+    <inertial>
+      <origin xyz="-0.00314201374155656 -0.000316576969441296 0.0310618347596631" rpy="0 0 0" />
+      <mass value="0.92353" />
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mycobot_320/urdf/320_urdf/meshes/arm_base.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mycobot_320/urdf/320_urdf/meshes/arm_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="j1">
+    <inertial>
+      <origin xyz="-4.65008859791595E-06 -0.00713845775566615 0.039058845834672" rpy="0 0 0" />
+      <mass value="0.3331" />
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mycobot_320/urdf/320_urdf/meshes/j1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mycobot_320/urdf/320_urdf/meshes/j1.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="j1_to_base" type="revolute">
+    <origin xyz="0 0 0.072677" rpy="0 0 1.5423" />
+    <parent link="arm_base" />
+    <child link="j1" />
+    <axis xyz="0 0 1" />
+    <limit lower="-2.97" upper="2.97" effort="1000" velocity="3.14" />
+    <dynamics damping="0.7" friction="5.0" />
+  </joint>
+
+  <link name="j2">
+    <inertial>
+      <origin xyz="-0.0513897959483668 1.03416109062133E-07 0.0428557705148588" rpy="0 0 0" />
+      <mass value="0.29389" />
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mycobot_320/urdf/320_urdf/meshes/j2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mycobot_320/urdf/320_urdf/meshes/j2.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="j2_to_j1" type="revolute">
+    <origin xyz="0 -0.0035666 0.06053" rpy="1.5708 1.5527 0" />
+    <parent link="j1" />
+    <child link="j2" />
+    <axis xyz="0 0 1" />
+    <limit lower="-2.79" upper="2.79" effort="1000" velocity="3.14" />
+  </joint>
+
+  <link name="j3">
+    <inertial>
+      <origin xyz="-0.0437220859914132 -1.2774481847333E-06 0.00135653065468257" rpy="0 0 0" />
+      <mass value="0.41605" />
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mycobot_320/urdf/320_urdf/meshes/j3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mycobot_320/urdf/320_urdf/meshes/j3.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="j3_to_j2" type="revolute">
+    <origin xyz="-0.1102 0 0" rpy="0 0 -0.43585" />
+    <parent link="j2" />
+    <child link="j3" />
+    <axis xyz="0 0 1" />
+    <limit lower="-2.79" upper="2.79" effort="1000" velocity="3.14" />
+  </joint>
+
+  <link name="j4">
+    <inertial>
+      <origin xyz="-1.40520224535812E-05 -0.0076816570577589 0.0230103540086662" rpy="0 0 0" />
+      <mass value="0.18777" />
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mycobot_320/urdf/320_urdf/meshes/j4.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mycobot_320/urdf/320_urdf/meshes/j4.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="j4_to_j3" type="revolute">
+    <origin xyz="-0.096 0 0.027014" rpy="0 0 0.56721" />
+    <parent link="j3" />
+    <child link="j4" />
+    <axis xyz="0 0 1" />
+    <limit lower="-2.79" upper="2.79" effort="1000" velocity="3.14" />
+  </joint>
+
+  <link name="j5">
+    <inertial>
+      <origin xyz="0.000112529211153511 0.00287540778498707 0.0396485032237697" rpy="0 0 0" />
+      <mass value="0.22519" />
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mycobot_320/urdf/320_urdf/meshes/j5.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mycobot_320/urdf/320_urdf/meshes/j5.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="j5_to_j4" type="revolute">
+    <origin xyz="0 -0.024124 0.033515" rpy="1.5708 -0.64832 0" />
+    <parent link="j4" />
+    <child link="j5" />
+    <axis xyz="0 0 1" />
+    <limit lower="-2.97" upper="2.97" effort="1000" velocity="3.14" />
+  </joint>
+
+  <link name="j6">
+    <inertial>
+      <origin xyz="-1.18357394707225E-06 -3.05824490363232E-06 0.0305489098542017" rpy="0 0 0" />
+      <mass value="0.060102" />
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mycobot_320/urdf/320_urdf/meshes/j6.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mycobot_320/urdf/320_urdf/meshes/j6.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="j6_to_j5" type="revolute">
+    <origin xyz="0 0.0096091 0.051625" rpy="-1.5708 0.0010726 0" />
+    <parent link="j5" />
+    <child link="j6" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.05" upper="3.05" effort="1000" velocity="3.14" />
+  </joint>
+</robot>
