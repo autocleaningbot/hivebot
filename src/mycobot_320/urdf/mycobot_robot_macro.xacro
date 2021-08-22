@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding='utf-8'?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:macro name="mycobot_pro_robot_macro" params="prefix:='' namespace:='xarm' limited:='false' effort_control:='false' velocity_control:='false' attach_to:='world' xyz:='0 0 0' rpy:='0 0 0' load_gazebo_plugin:='true' camera_sensor='true' ">
+  <xacro:macro name="mycobot_pro_robot_macro" params="prefix:='' attach_to:='world' xyz:='0 0 0' rpy:='0 0 0' camera_sensor:=False ">
 
     <!-- include mycobot relative macros: -->
     <xacro:include filename="$(find mycobot_320)/urdf/320_urdf/mycobot_320.urdf" />
@@ -20,7 +20,7 @@
     </joint>
 
     <!-- include the camera sensor mounted on the robotic arm if sensor is true -->
-    <xacro:if value="${camera_sensor == 'true'}">
+    <xacro:if value="${camera_sensor == True}">
       <xacro:include filename="$(find mycobot_320)/urdf/mycobot_robot.sensor.xacro" />
     </xacro:if>
 
