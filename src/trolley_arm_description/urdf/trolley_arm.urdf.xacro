@@ -10,6 +10,9 @@
         <!-- load mycobot_pro_320 -->
         <xacro:include filename="$(find mycobot_320)/urdf/mycobot_robot_macro.xacro" />
 
+        <!-- include gazebo transmissions -->
+        <xacro:include filename="$(find trolley_arm_description)/urdf/trolley_arm.gazebo.xacro"/>
+
         <xacro:mycobot_pro_robot_macro attach_to="mount-box" xyz="0.05 0 0" rpy="0 1.5707 0"/>
     </xacro:macro>
 

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+    <transmission name="trans_mount_box_to_frame">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mount_box_to_frame">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mount_box_to_frame_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+</robot>
