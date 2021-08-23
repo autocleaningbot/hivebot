@@ -1,0 +1,14 @@
+controller_list:
+  - name: fake_arm_motion_group_controller
+    type: $(arg execution_type)
+    joints:
+      - mount_box_to_frame
+      - j1_to_base
+      - j2_to_j1
+      - j3_to_j2
+      - j4_to_j3
+      - j5_to_j4
+      - j6_to_j5
+initial:  # Define initial robot poses.
+  - group: arm_motion_group
+    pose: observe
