@@ -160,7 +160,7 @@
   </link>
   <joint
     name="front_wheel_holder_1_toplate"
-    type="continuous">
+    type="fixed">
     <origin
       xyz="0 0 0"
       rpy="0 0 0" />
@@ -213,7 +213,7 @@
   </link>
   <joint
     name="front_wheel_1_toholder"
-    type="continuous">
+    type="fixed">
     <origin
       xyz="0 0 -0.081"
       rpy="0 0 0" />
@@ -319,7 +319,7 @@
   </link>
   <joint
     name="front_wheel_holder_2_toplate"
-    type="continuous">
+    type="fixed">
     <origin
       xyz="0 0 0"
       rpy="0 0 0" />
@@ -372,7 +372,7 @@
   </link>
   <joint
     name="front_wheel_2_toholder"
-    type="continuous">
+    type="fixed">
     <origin
       xyz="0 0 -0.081"
       rpy="0 0 0" />
@@ -478,7 +478,7 @@
   </link>
   <joint
     name="back_wheel_2_toholder"
-    type="continuous">
+    type="fixed">
     <origin
       xyz="0 0 0"
       rpy="0 0 0" />
@@ -584,7 +584,7 @@
   </link>
   <joint
     name="back_wheel_1_toholder"
-    type="continuous">
+    type="fixed">
     <origin
       xyz="0 0 0"
       rpy="0 0 0" />
@@ -689,7 +689,7 @@
     </collision>
   </link>
   <joint
-    name="mount-box-to-frame"
+    name="mount_box_to_frame"
     type="prismatic">
     <origin
       xyz="0 0 -0.57843375382"

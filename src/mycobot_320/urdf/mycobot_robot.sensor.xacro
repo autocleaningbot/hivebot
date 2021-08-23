@@ -23,7 +23,7 @@
     <link name="camera_link">
         <visual>
             <geometry>
-                <box size="0.01 0.01 0.01" />
+                <box size="0.02 0.02 0.02" />
             </geometry>
             <material name="Green">
                 <color rgba="0 1.0 1.0 1.0"/>
@@ -36,8 +36,8 @@
     </link>
 
     <joint name="camera_joint" type="fixed">
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <parent link="j5"/>
+        <origin xyz="0 -0.03 0" rpy="3.14 3.14 0" />
+        <parent link="j6"/>
         <child link="camera_link"/>
     </joint>
     <gazebo reference="base_laser_link">

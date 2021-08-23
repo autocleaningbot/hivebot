@@ -3,6 +3,7 @@
 
     <xacro:macro name="trolley_arm_macro">
         <xacro:arg name="ros_namespace" default="toilet_trolley_arm_description"/>
+        <xacro:arg name="camera_sensor" default="True"/>
 
         <!-- load trolley -->
         <xacro:include filename="$(find hivebot_trolley)/urdf/hivebot_trolley.xacro" />
@@ -13,7 +14,7 @@
         <!-- include gazebo transmissions -->
         <xacro:include filename="$(find trolley_arm_description)/urdf/trolley_arm.gazebo.xacro"/>
 
-        <xacro:mycobot_pro_robot_macro attach_to="mount-box" xyz="0.05 0 0" rpy="0 1.5707 0"/>
+        <xacro:mycobot_pro_robot_macro attach_to="mount-box" xyz="0.05 0 0" rpy="0 1.5707 0" camera_sensor="$(arg camera_sensor)"/>
     </xacro:macro>
 
     <xacro:trolley_arm_macro/>
