@@ -30,10 +30,10 @@ This repo consists of 3 ROS packages that define the following:
 1. Missing Dependencies
     - If there are dependency packages that are not yet installed
       - Run `rosdep install ${package name}`
-    - effort_controllers/JointTrajectoryController does not exist
-      - Run `sudo apt-get install ros-noetic-warehouse-ros-mongo`
+    - To install ros warehouse
+      - `sudo apt-get install ros-noetic-warehouse-ros-mongo`
       - `sudo apt-get install ros-noetic-warehouse-ros`
-    - To install ros warehouse 
+    - effort_controllers/JointTrajectoryController does not exist
       - Run `sudo apt-get install ros-noetic-ros-control ros-noetic-ros-controllers`
 ## Credits
 1. Models used in this project are from https://github.com/elephantrobotics/mycobot_ros
