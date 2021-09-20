@@ -1,3 +1,5 @@
 /build
 /devel
 .catkin_workspace
+/src/archive/*
+/src/hivebotics_moveit_config/default_warehouse_mongo_db
