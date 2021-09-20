@@ -5,8 +5,19 @@
 <robot
   xmlns:xacro="http://ros.org/wiki/xacro"
   name="toilet_urdf">
+  <link name="world"/>
+  <link name="toilet_virtual"/>
+  <joint name="toilet_virtual_joint" type="fixed">
+    <parent link="toilet_virtual"/>
+    <child link="toilet_base"/>
+  </joint>
+  <joint name="world_joint" type="fixed">
+    <origin xyz="0.5 -0.5 -0.2" rpy="0 0 -1.51"/>
+    <parent link="world"/>
+    <child link="toilet_virtual"/>
+  </joint>
   <link
-    name="base_link">
+    name="toilet_base">
     <inertial>
       <origin
         xyz="-0.0022188 -0.077174 0.28987"
@@ -92,7 +103,7 @@
       xyz="-0.003 0.0115 0.4165"
       rpy="1.5708 0 0" />
     <parent
-      link="base_link" />
+      link="toilet_base" />
     <child
       link="toilet_shaft_link" />
     <axis
