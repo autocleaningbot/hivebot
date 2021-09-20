@@ -1,9 +1,11 @@
 ## Overview
-This repo consists of 3 ROS packages that define the following:
-1. Hivebot Trolley
-2. Mycobot_Pro manipulator (320 mm) [Note this has been adapted from the manufacturer's ROS package]
-3. trolley_arm_description [This package dynamically attaches the manipulator to the trolley for use in Rviz and Gazebo]
-
+This repo consists of the following ROS packages that define the following:
+1. **mycobot_320** : description of the mycobot_320 mm robot
+2. **hivebot_trolley** : description of the trolley design
+3. **trolley_arm_description** : description to dynamically attach manipulator to the trolley for use in Rviz and Gazebo
+4. **toilet_urdf**: description of a toilet bowl
+5. **mycobot_moveit**: moveit config for mycobot_arm alone
+6. **hivebotics_moveit_control**: moveit config for linear actuator mated with mycobot_arm system
 
 ## Set Up Instructions
 1. If you havent yet done so, create a catkin workspace using the following:
