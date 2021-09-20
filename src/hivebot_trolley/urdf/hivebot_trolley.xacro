@@ -3,7 +3,7 @@
      Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot name="hivebot_trolley">
-
+  <link name="world"/>
   <link name="base_footprint" xmlns:xacro="http://www.ros.org/wiki/xacro"/>
 
   <joint name="base_joint" type="fixed">
@@ -1170,4 +1170,11 @@
     <axis
       xyz="0 0 1" />
   </joint>
+
+  <joint name="world_base" type="fixed">
+    <origin xyz="0 0 0.2"/>
+    <parent link="world"/>
+    <child link="base_footprint"/>
+  </joint>
+
 </robot>
