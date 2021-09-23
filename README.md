@@ -8,18 +8,40 @@ This repo consists of the following ROS packages that define the following:
 6. **hivebotics_moveit_control**: moveit config for linear actuator mated with mycobot_arm system
 
 ## Set Up Instructions
-1. If you havent yet done so, create a catkin workspace using the following:
 
-    a. create directory ie. ~/catkin_ws/src
-    b. run `catkin_make`
 
-2. Create an `src` folder inside your catkin workspace.
+### A. ROS Installation
+  
+  * Version: ROS-NOETIC [Ensure that you get the correct version]
+  1. Follow ROS Tutorial to download and install ROS-NOETIC
+     - Link: http://wiki.ros.org/noetic/Installation
+  2. After ROS has been installed, we need to install some of the required libraries for our package
+      - Gazebo [http://gazebosim.org/tutorials?tut=ros_installing]
+      - MoveIt [https://ros-planning.github.io/moveit_tutorials/doc/getting_started/getting_started.html]
+      - warehouse-mongodb
+      - JointTrajectoryController
 
-2. Git clone this repositority inside the src folder and rebuild your catkin_workspace.
+### B. Set up workspace
+  1. If you havent yet done so, create an appropriate working catkin directory
+      - Typically we will create a `Developer` foler in the home directory
+      - And then create a ros_workspaces folder inside Developer
+      - ie. (~/Developer/ros_workspaces/)
+  2. **Git clone** this repo which contains an entire catkin workspace into your directory
+      - You may need to set up SSH authentication if you havent done so with git
+      - You should have (~/Developer/ros_workspaces/hivebot)
+  3. Inside the `hivebot` directory, run:
+      - `catkin_make`
 
-    a. You should have ie. ~/catkin_ws/src/toilet_trolley_arm
-    
-3. In your root directory of your catkin_ws (ie. ~/catkin_ws) run `catkin_make`
+### C. Install Dependencies
+1. Missing Dependencies
+
+
+2. Commonly Missed Dependencies
+    - `sudo apt install ros-noetic-moveit`
+    - `sudo apt install ros-noetic-moveit-resources-prbt-moveit-config`
+    - `sudo apt-get install ros-noetic-warehouse-ros-mongo`
+    - `sudo apt-get install ros-noetic-ros-control ros-noetic-ros-controllers`
+    - `sudo apt install ros-noetic-pilz-industrial-motion-planner`
 
 ## Startup 
 1. To view the urdf in Rviz, run
