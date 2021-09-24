@@ -5,7 +5,12 @@ This repo consists of the following ROS packages that define the following:
 3. **trolley_arm_description** : description to dynamically attach manipulator to the trolley for use in Rviz and Gazebo
 4. **toilet_urdf**: description of a toilet bowl
 5. **mycobot_moveit**: moveit config for mycobot_arm alone
-6. **hivebotics_moveit_control**: moveit config for linear actuator mated with mycobot_arm system
+6. **hivebotics_moveit_config**: moveit config for linear actuator mated with mycobot_arm system
+    - launch/
+      - demo_gazebo.launch: ***Lauch file for motion planning interface in Simulation***
+      - demo.launch: ***Launch file for motion planning interface in hardware***
+    - scripts/
+      - hivebotics_move.py: ***Custom Commandline Trajectory Planning Script***
 
 ## Set Up Instructions
 
@@ -33,25 +38,10 @@ This repo consists of the following ROS packages that define the following:
       - `catkin_make`
 
 ### C. Install Dependencies
-1. Missing Dependencies
+1. Dependencies missed will cause errors in the motion planning interface, when launched. To ensure all the requisite dependencies are installed, run through the franka tutorial installation in the moveit documentations
+    - https://ros-planning.github.io/moveit_tutorials/doc/getting_started/getting_started.html
 
-
-2. Commonly Missed Dependencies
-    - `sudo apt install ros-noetic-moveit`
-    - `sudo apt install ros-noetic-moveit-resources-prbt-moveit-config`
-    - `sudo apt-get install ros-noetic-warehouse-ros-mongo`
-    - `sudo apt-get install ros-noetic-ros-control ros-noetic-ros-controllers`
-    - `sudo apt install ros-noetic-pilz-industrial-motion-planner`
-
-## Startup 
-1. To view the urdf in Rviz, run
-    -  `roslaunch trolley_arm_description trolley_arm_description.launch`
-
-2. To view the simulation in Gazebo, run
-    - `roslaunch trolley_arm_description gazebo.launch`
-    
-## Potential Issues
-1. Missing Dependencies
+2. Missing Dependencies
     - If there are dependency packages that are not yet installed
       - Run `rosdep install ${package name}`
     - To install ros warehouse
@@ -59,5 +49,27 @@ This repo consists of the following ROS packages that define the following:
       - `sudo apt-get install ros-noetic-warehouse-ros`
     - effort_controllers/JointTrajectoryController does not exist
       - Run `sudo apt-get install ros-noetic-ros-control ros-noetic-ros-controllers`
+    - Other Common dedpendencies that are usual sources of error
+      - `sudo apt install ros-noetic-moveit`
+      - `sudo apt install ros-noetic-moveit-resources-prbt-moveit-config`
+      - `sudo apt-get install ros-noetic-ros-control ros-noetic-ros-controllers`
+      - `sudo apt-get install ros-noetic-pilz-industrial-motion-planner`
+      - `sudo apt-get install -y ros-noetic-rviz-visual-tools`
+
+## Startup 
+1. To view the urdf in Rviz, run
+    -  `roslaunch trolley_arm_description trolley_arm_description.launch`
+
+2. To view the simulation in Gazebo, run
+    - `roslaunch trolley_arm_description gazebo.launch`
+
+3. To run the motion planning interface, run
+    - Without a mongodb database
+      - `roslaunch hivebotics_moveit_config demo_gazebo.launch`
+    - With a mongodb database in Rviz
+      - Ensure mongodb is installed on the computer
+        - Link: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+      - `roslaunch hivebotics_moveit_config demo_gazebo.launch db:=true`
+
 ## Credits
 1. Models used in this project are from https://github.com/elephantrobotics/mycobot_ros
